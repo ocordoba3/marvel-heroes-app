@@ -3,10 +3,13 @@ import { Comic } from '../../types'
 import { Card } from './styles'
 
 export const HeroesCard = ({ id, title, thumbnail, creators, price }: Comic) => {
+
+    const url = thumbnail.path.replace(/^http:\/\//i, 'https://');
+    
     return (
         <Card>
             <div className='card__img-container'>
-                <img loading='lazy' src={`${thumbnail.path}/portrait_xlarge.${thumbnail.extension}`} alt={`Comic-${id}`} width={'80%'} height={'100%'} />
+                <img loading='lazy' src={`${url}/portrait_xlarge.${thumbnail.extension}`} alt={`Comic-${id}`} width={'80%'} height={'100%'} />
             </div>
             <div className='card__text-container'>
                 <h4 className='card__comic-name'>{title}</h4>
