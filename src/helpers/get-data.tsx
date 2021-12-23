@@ -1,14 +1,16 @@
 import axios from 'axios';
-import { addData } from '../reducers/comics/comicSlice';
+import { addData, setLoading } from '../reducers/comics/comicSlice';
 
 const url_base = process.env.REACT_APP_API_URL;
 const ts = process.env.REACT_APP_TS_KEY;
 const api_key = process.env.REACT_APP_PUBLIC_KEY;
 const hash_key = process.env.REACT_APP_HASH_KEY;
+const offSet = Math.round(Math.random() * (20 - 0) + 0);
 
 export const getData = () => async (dispatch: Function) => {
-    const url = `${url_base}comics?ts=${ts}&apikey=${api_key}&hash=${hash_key}`;
+    const url = `${url_base}comics?ts=${ts}&apikey=${api_key}&hash=${hash_key}&offset=${offSet}`;
     try {
+        dispatch(setLoading(true));
         const response = await axios.get(url);
         const data = response.data.data.results;
         const commics = data.map( (item: any) => ({
@@ -22,14 +24,16 @@ export const getData = () => async (dispatch: Function) => {
             }
         }));
         dispatch(addData(commics));
+        dispatch(setLoading(false));
     } catch (error) {
         console.error(error);
     }
 }
 
 export const getDataByHeroe = (heroe: string) => async (dispatch: Function) => {
-    const url = `${url_base}comics?ts=${ts}&apikey=${api_key}&hash=${hash_key}&titleStartsWith=${heroe}`;
+    const url = `${url_base}comics?ts=${ts}&apikey=${api_key}&hash=${hash_key}&offset=${offSet}&titleStartsWith=${heroe}`;
     try {
+        dispatch(setLoading(true));
         const response = await axios.get(url);
         const data = response.data.data.results;
         const commics = data.map( (item: any) => ({
@@ -43,6 +47,7 @@ export const getDataByHeroe = (heroe: string) => async (dispatch: Function) => {
             }
         }));
         dispatch(addData(commics));
+        dispatch(setLoading(false));
     } catch (error) {
         console.error(error);
     }

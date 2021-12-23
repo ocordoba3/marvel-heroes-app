@@ -12,5 +12,9 @@ export const Container = styled.article`
         height: 50vh;
         justify-content: center;
         width: 100%;
+
+        p {
+            text-align: center;
+        }
     }
 `

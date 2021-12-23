@@ -1,24 +1,32 @@
-export const BLACK_COLOR = '#2e2c2f';
-export const LIGHT_GREEN_COLOR = '#c7e0ba';
-export const RUSSIAN_GREEN_COLOR = '#729b79';
-export const BLUE_COLOR = '#475b63';
-export const WHITE_COLOR = '#f3e8ee';
+export const DARKBLUE_COLOR = '#001344';
+export const ORANGE_COLOR = '#FE670A';
+export const RED_COLOR = '#FF2826';
+export const BLUE_COLOR = '#017BC4';
+export const YELLOW_COLOR = '#FDC025';
 
 export const heroes = [
     {
         name: 'Spider-Man',
-        id: 'spiderman'
+        id: 'spiderman',
+        primary: '#B12D2D',
+        secondary: '#4a83b1'
     },
     {
         name: 'Hulk',
-        id: 'hulk'
+        id: 'hulk',
+        primary: '#27A248',
+        secondary: '#734196'
     },
     {
         name: 'Thor',
-        id: 'thor'
+        id: 'thor',
+        primary: '#1B88ED',
+        secondary: '#FFFB0F'
     },
     {
         name: 'Wolverine',
-        id: 'wolverine'
+        id: 'wolverine',
+        primary: '#FFFB0F',
+        secondary: '#000000'
     }
 ]

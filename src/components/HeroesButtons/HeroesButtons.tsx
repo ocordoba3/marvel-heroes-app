@@ -2,7 +2,7 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import { heroes } from '../../consts'
 import { getDataByHeroe } from '../../helpers/get-data'
-import { ButtonsContainer } from './styles'
+import { ButtonsContainer, HeroeButton } from './styles'
 
 export const HeroesButtons = () => {
     const dispatch = useDispatch();
@@ -15,7 +15,14 @@ export const HeroesButtons = () => {
         <ButtonsContainer>
            {
                heroes.map((heroe) => (
-                   <button key={heroe.id} onClick={() => handleHeroeSearch(heroe.name)}>{heroe.name}</button>
+                   <HeroeButton 
+                        primary={heroe.primary} 
+                        secondary={heroe.secondary} 
+                        key={heroe.id} 
+                        onClick={() => handleHeroeSearch(heroe.name)}
+                    >
+                        {heroe.name}
+                    </HeroeButton>
                ))
            } 
         </ButtonsContainer>

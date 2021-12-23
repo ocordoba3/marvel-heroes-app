@@ -3,6 +3,7 @@ import { ComicState } from '../../types';
 
 const initialState: ComicState = {
   comics: [],
+  isLoading: false,
 }
 
 export const comicSlice = createSlice({
@@ -12,15 +13,12 @@ export const comicSlice = createSlice({
     addData: (state, data: any) => {
       state.comics = data.payload;
     },
-    filterData: (state, data: any) => {
-      
-    },
-    clearFilter: (state) => {
-      state.comics = []
-    },
+    setLoading: (state, data: any) => {
+      state.isLoading = data.payload
+    }
   },
 })
 
-export const { addData, filterData, clearFilter } = comicSlice.actions;
+export const { addData, setLoading } = comicSlice.actions;
 
 export default comicSlice.reducer;

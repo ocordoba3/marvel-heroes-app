@@ -10,19 +10,14 @@ export const HeroesContent = () => {
 
     const dispatch = useDispatch();
     const [data, setComics] = useState<Comic[]>([]);
-    const [isLoading, setIsLoading] = useState(true);
-    const { comics } = useSelector((state: RootState) => state.comics);
+    const { comics, isLoading } = useSelector((state: RootState) => state.comics);
 
     useEffect(() => {
         dispatch(getData());
     }, [dispatch]);
-    
+
     useEffect(() => {
-        setIsLoading(true);
         setComics(comics);
-        setTimeout(() => {
-            setIsLoading(false);
-        }, 1000)
     }, [comics]);
 
     if (isLoading) {
@@ -33,22 +28,23 @@ export const HeroesContent = () => {
                 </div>
             </Container>
         )
+    } else {
+        return (
+            <Container>
+                {
+                    data.length > 0 &&
+                    data.map((item: Comic) => (
+                        <HeroesCard key={item.id} {...item} />
+                    ))
+                }
+                {
+                    data.length === 0 &&
+                    <div className='heroes__empty-content'>
+                        <p>Sorry, we can't find results for your search.</p>
+                    </div>
+                }
+            </Container>
+        )
     }
 
-    return (
-        <Container>
-            {
-                !isLoading && data.length > 0 &&
-                data.map((item: Comic) => (
-                    <HeroesCard key={item.id} {...item} />
-                ))
-            }
-            {
-                !isLoading && data.length === 0 &&
-                <div className='heroes__empty-content'>
-                    <p>Sorry, we can't find results for your search.</p>
-                </div>
-            }
-        </Container>
-    )
 }

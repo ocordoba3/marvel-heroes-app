@@ -1,5 +1,8 @@
-import styled from "styled-components";
-import { BLUE_COLOR, LIGHT_GREEN_COLOR, RUSSIAN_GREEN_COLOR } from "../../consts";
+import styled from 'styled-components';
+interface Colors {
+    primary: string,
+    secondary: string
+}
 
 export const ButtonsContainer = styled.div`
     box-sizing: border-box;
@@ -10,17 +13,21 @@ export const ButtonsContainer = styled.div`
     width: 100%;
 
     @media screen and (min-width: 575px) {
-        padding: 1.6rem;  
+        padding: 4% 2% 0 2%;  
     }
 
-    button {
-        background-color: ${BLUE_COLOR};
+`
+
+export const HeroeButton = styled.button<Colors>`
+
+        background-color: ${(props) => props.primary};
         box-sizing: border-box;
         border: none;
-        border-radius: 0;
-        color: ${LIGHT_GREEN_COLOR};
+        border-radius: 2rem;
+        color: ${(props) => props.secondary};
         cursor: pointer;
         font-size: 1.8rem;
+        font-weight: bolder;
         margin: 1rem;
         padding: .7rem 2rem;
 
@@ -28,12 +35,10 @@ export const ButtonsContainer = styled.div`
             margin: 0 auto; 
             padding: 1.5rem 4rem;   
         }
-        /* @media screen and (min-width: 767px) {
-            margin: 3rem 14rem;    
-        } */
-
+        
         :hover {
-            background-color: ${RUSSIAN_GREEN_COLOR};
+            background-color: ${(props) => props.secondary};
+            color: ${(props) => props.primary};
         }
-    }
+
 `

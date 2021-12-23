@@ -13,6 +13,6 @@ export const Search = () => {
         }
     }
     return (
-        <Input type='text' placeholder='Write something and press Enter...' onKeyPress={(e: any) => handleSearch(e, e.target.value)} />
+        <Input type='text' placeholder='Write something and press Enter' onKeyPress={(e: any) => handleSearch(e, e.target.value)} />
     )
 }

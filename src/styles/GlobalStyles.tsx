@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-import { BLACK_COLOR, LIGHT_GREEN_COLOR } from './consts';
+import { DARKBLUE_COLOR, ORANGE_COLOR } from '../consts';
 
 export const GlobalStyles = createGlobalStyle`
     * {
@@ -9,8 +9,8 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     body {
-        background-color: ${BLACK_COLOR};
-        color: ${LIGHT_GREEN_COLOR};
+        background-color: ${DARKBLUE_COLOR};
+        color: ${ORANGE_COLOR};
         font-family: 'Archivo', sans-serif;
     }
 

@@ -9,5 +9,6 @@ export interface Comic {
     }
   }
   export interface ComicState {
-    comics: Array<Comic>
+    comics: Array<Comic>,
+    isLoading: boolean
   }
