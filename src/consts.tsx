@@ -7,15 +7,15 @@ export const YELLOW_COLOR = '#FDC025';
 export const heroes = [
     {
         name: 'Spider-Man',
-        id: 'spiderman',
-        primary: '#B12D2D',
-        secondary: '#4a83b1'
+        id: 'spider-man',
+        primary: '#ff0000',
+        secondary: '#10508F'
     },
     {
         name: 'Hulk',
         id: 'hulk',
         primary: '#27A248',
-        secondary: '#734196'
+        secondary: '#5b3477'
     },
     {
         name: 'Thor',

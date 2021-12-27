@@ -12,7 +12,7 @@ export const Card = styled.section`
     ${fadeIn({})}
 
     .card__img-container {
-        background-color: #784747;
+        background-color: #26287c;
         border-radius:  1.5rem 1.5rem 0 0;
         display: flex;
         justify-content: center;
@@ -31,6 +31,7 @@ export const Card = styled.section`
     }
 
     .card__comic-name {
+        font-size: 2.4rem;
         min-width: 100%;
         max-width: 100%;
         overflow: hidden;

@@ -1,18 +1,20 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
-import { getDataByHeroe } from '../../helpers/get-data';
+import React, { KeyboardEvent } from 'react';
 import { Input } from './styles';
+import { useNavigate } from "react-router-dom";
 
 export const Search = () => {
 
-    const dispatch = useDispatch();
-
-    const handleSearch = (event: any, word: string) => {
-        if(word.length > 2 && event.key === 'Enter') {
-            dispatch(getDataByHeroe(word));
+    const navigate = useNavigate();
+    const handleSearch = ({ key }: KeyboardEvent, word: string) => {
+        if (word.length > 2 && key === 'Enter') {
+            navigate(`?name=${word}`);
         }
     }
     return (
-        <Input type='text' placeholder='Write something and press Enter' onKeyPress={(e: any) => handleSearch(e, e.target.value)} />
+        <Input 
+            type='text' 
+            placeholder='Write something and press Enter' 
+            onKeyPress={(e: any) => handleSearch(e, e.target.value)} 
+        />
     )
 }

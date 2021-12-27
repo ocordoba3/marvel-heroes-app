@@ -15,7 +15,7 @@ export const comicSlice = createSlice({
     },
     setLoading: (state, data: any) => {
       state.isLoading = data.payload
-    }
+    },
   },
 })
 

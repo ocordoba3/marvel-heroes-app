@@ -1,30 +1,29 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import { heroes } from '../../consts'
-import { getDataByHeroe } from '../../helpers/get-data'
 import { ButtonsContainer, HeroeButton } from './styles'
 
 export const HeroesButtons = () => {
-    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const handleHeroeSearch = (heroe: string) => {
-        dispatch(getDataByHeroe(heroe));
+        navigate(`?name=${heroe}`);
     }
-    
+
     return (
         <ButtonsContainer>
-           {
-               heroes.map((heroe) => (
-                   <HeroeButton 
-                        primary={heroe.primary} 
-                        secondary={heroe.secondary} 
-                        key={heroe.id} 
-                        onClick={() => handleHeroeSearch(heroe.name)}
+            {
+                heroes.map((heroe) => (
+                    <HeroeButton
+                        primary={heroe.primary}
+                        secondary={heroe.secondary}
+                        key={heroe.id}
+                        onClick={() => handleHeroeSearch(heroe.id)}
                     >
                         {heroe.name}
                     </HeroeButton>
-               ))
-           } 
+                ))
+            }
         </ButtonsContainer>
     )
 }

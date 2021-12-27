@@ -4,7 +4,7 @@ import { YELLOW_COLOR } from '../../consts';
 export const Input = styled.input`
     background: url('./assets/search.png') no-repeat scroll 1rem 1.3rem;
     background-size: 2rem;
-    border: .1rem solid ${YELLOW_COLOR};
+    border: .3rem solid ${YELLOW_COLOR};
     border-radius: 2rem;
     color: ${YELLOW_COLOR};
     font-size: 1.5rem;

@@ -5,10 +5,10 @@ import { MainContent } from './styles';
 import { HeroesContent } from './HeroesContent/HeroesContent';
 import { Provider } from 'react-redux';
 import { store } from '../store/store';
+
 import { HeroesButtons } from './HeroesButtons/HeroesButtons';
 
-export const HeroesApp = () => {
-
+export const HeroesScreen = () => {
     return (
         <Provider store={store}>
             <GlobalStyles />

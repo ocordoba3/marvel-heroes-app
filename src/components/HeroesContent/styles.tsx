@@ -6,6 +6,10 @@ export const Container = styled.article`
     justify-content: center;
     width: 100%;
 
+    .heroes-content-title{
+        width: 100%;
+        margin: 4% 2% 0 2%;
+    }
     .heroes__empty-content {
         align-items: center;
         display: flex;
